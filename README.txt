@@ -3,6 +3,7 @@
 POR HACER
 
 1. TERMINAR DE ARREGLAR BACKEND
+
 **Conseguir poner usuarios públicos/privados 
 **Tener en cuenta las correcciones de Samu
 **Terminar el resto de puntos del bonus del proyecto 2
