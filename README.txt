@@ -1,8 +1,12 @@
 # PROYECTO-F.BOOTCAMP
 
-POR HACER
+POR HACER:
 
-1. TERMINAR DE ARREGLAR BACKEND
+-----D  HACERLO HARDCORE
+
+-----D  PETICIONES AL SERVIDOR
+
+-----D  TERMINAR DE ARREGLAR BACKEND
 
 **Conseguir poner usuarios públicos/privados 
 **CORRECCIONES DE SAMU:
@@ -24,10 +28,4 @@ POR HACER
 -Al intentar subir una foto, da error si no existe la carpeta static/notasImagen. Es normal, pero molaría que se crease sola en caso de no existir, o que al menos esté subida al repo de git. El problema es que git ignora automáticamente las carpetas vacías, entonces para que se subiese hay que meter algún archivo dentro. Lo que la gente suele hacer, es poner un archivo vacío llamado .gitkeep. Simplemente se le llama así para que la gente sepa que es un archivo sin importancia, solo para que git conserve la carpeta
 
 
-
-
-
-**Terminar el resto de puntos del bonus del proyecto 2
-
-
-2. DARLE CAÑA AL FRONTED. DIVISIÓN DE TAREAS:
+-----D  DARLE CAÑA AL FRONTED. DIVISIÓN DE TAREAS:
