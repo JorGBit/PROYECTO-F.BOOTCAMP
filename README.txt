@@ -13,10 +13,17 @@ PARA INICIAR PROYECTO:
 
  POR HACER:
  
--Home Page: aquí no aparecerá ninguna lista de notas, será solo para recibir al usuario. Será puramente estético, apareciendo en la cabecera Registro y Login de usuario.
+ LÓGICA DE LA WEB
+ 
+-Conseguir la funcionalidad de que se puedan editar las notas
+-Hacer que la página pueda subir imágenes relacionadas con las notas
+
 -NewNotePage: crear una pagina nueva donde incluir el formulario de creación de notas. Hay que conseguir que se pueda subir una imagen desde el inicio y que la guarde en la base de datos.
 -ListNotePage: una página (que no va a ser la HomePage) donde el usuario pueda observar. 
 -Imágenes. Ahora mismo la app no agrega imágenes. Quizá sea interesante una modificación del Backend para que se pueda incluir una imagen en la creación de una nota
+
+ESTÉTICA: CSS, HTML
+
 -Agregar estética a la página: propongo que sea una app con estética en la que aparezcan gatos. App-Cat-Note por ejemplo. (a todo el mundo le gustan los gatos, a los programadores y tutores del bootcamp seguro que también)
 
 *HomePage: solo gatos moviéndose por la pantalla, login y registro del usuario.
