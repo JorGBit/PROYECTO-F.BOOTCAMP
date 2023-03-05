@@ -1,10 +1,10 @@
 /** @format */
 import useNotes from "../hooks/useNotes";
-// import { NoteList } from "../components/NoteList";
-import { useState } from "react";
-import { useContext } from "react";
-import SendPhoto from "../components/SendPhoto";
+import { SendPhoto } from "../components/SendPhoto";
 import { AuthContext } from "../context/AuthContext";
+import { ErrorMessage } from "../components/ErrorMessage";
+import { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 
 export const AddPhotoPage = () => {
   const [noteId, setNoteId] = useState(null);
@@ -21,12 +21,10 @@ export const AddPhotoPage = () => {
       {user && (
         <>
           <h1>Add Photo to Note</h1>
-          {/* <NoteList handleNoteSelection={handleNoteSelection} /> */}
+
           {<SendPhoto noteId={noteId} />}
         </>
       )}
     </section>
   );
 };
-
-export default AddPhotoPage;
