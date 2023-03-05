@@ -9,7 +9,7 @@ export const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { login } = useContext(AuthContext);
-    // const { setToken } = useContext(AuthContext);
+   
     const navigate = useNavigate();
 
     const handleForm = async (e) => {
