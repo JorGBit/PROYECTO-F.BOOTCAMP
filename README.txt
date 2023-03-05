@@ -28,3 +28,9 @@ ESTÉTICA: CSS, HTML
 
 *HomePage: solo gatos moviéndose por la pantalla, login y registro del usuario.
 *Gatos: aparecen en los listados de notas. Estarán vinculados con las categorías.
+
+COMO UTILIZAR LA APLICACION
+
+-Backend
+
+-Frontend
