@@ -15,6 +15,8 @@ export const getAllNotesService = async (token) => {
   return json.notes;
 };
 
+//ESTE SERVICIO DA INFORMACIÓN DE UNA NOTA CREADA
+
 export const getSingleNoteService = async (id) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/noteInfo/${id}`
@@ -27,6 +29,7 @@ export const getSingleNoteService = async (id) => {
   return json.noteInfo;
 };
 
+//ESTE SERVICIO REGISTRA UN NUEVO USUARIO
 export const registerUserService = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/register`, {
     method: "POST",
@@ -41,6 +44,7 @@ export const registerUserService = async ({ email, password }) => {
   }
 };
 
+//ESTE SERVICIO LOGEA AL USUARIO
 export const loginUserService = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
     method: "POST",
@@ -58,6 +62,7 @@ export const loginUserService = async ({ email, password }) => {
   return json.authToken;
 };
 
+//ESTE SERVICIO OFRECE LA INFORMACIÓN DE USUARIO
 export const getMyUserDataService = async ({ token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/users`, {
     headers: {
@@ -73,6 +78,7 @@ export const getMyUserDataService = async ({ token }) => {
   return json.user;
 };
 
+//ESTE SERVICIO OFRECE LA INFORMACIÓN DE USUARIO
 export const getUserDataService = async ({ token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/users`, {
     headers: {
@@ -88,6 +94,7 @@ export const getUserDataService = async ({ token }) => {
   return json.user;
 };
 
+//ESTE SERVICIO ENVÍA UNA NOTA NUEVA A LA BASE DE DATOS
 export const sendNoteService = async ({ data, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/new`, {
     method: "POST",
@@ -104,28 +111,7 @@ export const sendNoteService = async ({ data, token }) => {
   return json.data;
 };
 
-export const sendPhotoService = async ({ id, photo, token, data }) => {
-  const formData = new FormData();
-  formData.append("photo", photo);
-
-  const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/notes/${id}/photo`,
-    {
-      method: "POST",
-      body: data,
-      headers: {
-        Authorization: token,
-      },
-    }
-  );
-
-  const json = await response.json();
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-  return json.data;
-};
-
+//ESTE SERVICIO ELIMINA UNA NOTA
 export const deleteNoteService = async ({ id, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
     method: "DELETE",
@@ -140,30 +126,53 @@ export const deleteNoteService = async ({ id, token }) => {
   }
 };
 
-// export const updateNoteService = async (id, token, note) => {
-//   const response = await fetch(
-//     `${process.env.REACT_APP_BACKEND}/notesEdit/${id}`,
-//     {
-//       method: "PUT",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: token,
-//       },
-//       body: JSON.stringify(note),
-//     }
-//   );
-//   const json = await response.json();
-//   if (!response.ok) {
-//     throw new Error(json.message);
-//   }
-//   return json.note;
-// };
-export const updateNoteService = async ({ note, token, id }) => {
+//ESTE SERVICIO EDITA LA INFORMACIÓN EXISTENTE DE UNA NOTA
+export const editNoteService = async (token, id, note) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/notesEdit/${id}`,
     {
       method: "PUT",
-      body: note,
+      body: JSON.stringify(note),
+      headers: { "Content-Type": "application/json", Authorization: token },
+    }
+  );
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.note;
+};
+
+// //ESTE SERVICIO SUBE UNA FOTO
+// export const uploadPhotoService = async ({ file, noteId, token }) => {
+//   const formData = new FormData();
+//   formData.append("photo", file);
+
+//   const response = await fetch(
+//     `${process.env.REACT_APP_BACKEND}/notes/${noteId}/photo`,
+//     {
+//       method: "POST",
+//       body: formData,
+//       headers: {
+//         Authorization: token,
+//       },
+//     }
+//   );
+
+//   const json = await response.json();
+//   if (!response.ok) {
+//     throw new Error(json.message);
+//   }
+//   return json.photo;
+// };
+
+export const uploadPhotoService = async ({ noteId, data, token }) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND}/notes/${noteId}/photo`,
+    {
+      method: "POST",
+      body: data,
       headers: {
         Authorization: token,
       },
@@ -174,19 +183,5 @@ export const updateNoteService = async ({ note, token, id }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-  return json.note;
-};
-
-//PRUEBAS PARA INCLUIR FOTO
-
-export const getPhotoById = async (id) => {
-  try {
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND}/note/${id}/photo/`
-    );
-    const photo = await response.json();
-    return photo;
-  } catch (error) {
-    console.error(error.message);
-  }
+  return json.photo;
 };
