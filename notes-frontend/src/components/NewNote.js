@@ -104,27 +104,7 @@ export const NewNote = ({ addNote }) => {
                     required
                 />
             </fieldset>
-            <fieldset>
-                <label htmlFor="image">Imagen</label>
-                <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/*"
-                    className="form__input"
-                    onChange={(e) => setImage(e.target.files[0])}
-                />
-
-                {image ? (
-                    <figure>
-                        <img
-                            src={URL.createObjectURL(image)}
-                            alt="Preview"
-                            style={{ width: '100px' }}
-                        />
-                    </figure>
-                ) : null}
-            </fieldset>
+            
             <button className="form_note_btn">Enviar nota</button>
             {sending ? <p>Enviando nota</p> : null}
             {error ? <p>{error}</p> : null}
