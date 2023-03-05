@@ -1,7 +1,6 @@
 /** @format */
 import useNotes from '../hooks/useNotes';
 import { NoteList } from '../components/NoteList';
-// import { ErrorMessage } from "../components/ErrorMessage";
 import { NewNote } from '../components/NewNote';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
@@ -12,7 +11,6 @@ export const NoteListPage = () => {
     const { user } = useContext(AuthContext);
 
     if (loading) return <p>Cargando notas</p>;
-    //if (error) return <ErrorMessage message={error} />;
     if (error) return <p>Hubo un error: {error}</p>;
 
     return (
